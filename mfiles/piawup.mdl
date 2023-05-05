@@ -1,0 +1,717 @@
+Model {
+  Name			  "PIAWUP"
+  Version		  3.00
+  SimParamPage		  "Solver"
+  SampleTimeColors	  off
+  InvariantConstants	  off
+  WideVectorLines	  off
+  ShowLineWidths	  off
+  ShowPortDataTypes	  off
+  StartTime		  "0.0"
+  StopTime		  "20"
+  SolverMode		  "SingleTasking"
+  Solver		  "ode45"
+  RelTol		  "1e-3"
+  AbsTol		  "1e-3"
+  Refine		  "1"
+  MaxStep		  "0.010"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  MaxOrder		  5
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  SaveTime		  on
+  TimeSaveName		  "t"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  off
+  OutputSaveName	  "yout"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Matrix"
+  LimitMaxRows		  off
+  MaxRows		  "1000"
+  Decimation		  "1"
+  AlgebraicLoopMsg	  "warning"
+  MinStepSizeMsg	  "warning"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  IntegerOverflowMsg	  "warning"
+  UnnecessaryDatatypeConvMsg "none"
+  Int32ToFloatConvMsg	  "warning"
+  SignalLabelMismatchMsg  "none"
+  ConsistencyChecking	  "off"
+  ZeroCross		  on
+  SimulationMode	  "normal"
+  BlockDataTips		  on
+  BlockParametersDataTip  on
+  BlockAttributesDataTip  off
+  BlockPortWidthsDataTip  off
+  BlockDescriptionStringDataTip	off
+  BlockMaskParametersDataTip off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  OptimizeBlockIOStorage  on
+  BufferReuse		  on
+  BooleanDataType	  off
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWInlineParameters	  off
+  RTWRetainRTWFile	  off
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "oneshot"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  off
+  Created		  "Tue Jan 18 20:43:42 2000"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Tue Jan 18 20:45:48 2000"
+  ModelVersionFormat	  "1.%<AutoIncrement:2>"
+  ConfigurationManager	  "none"
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "PIAWUP"
+    Location		    [2, 74, 802, 560]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    ZoomFactor		    "100"
+    AutoZoom		    on
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Step
+      Name		      "Dist"
+      Position		      [520, 100, 550, 130]
+      BackgroundColor	      "cyan"
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      Time		      "10"
+      Before		      "0"
+      After		      "-1"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [660, 45, 705, 85]
+      ForegroundColor	      "green"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Inputs		      "2"
+      DisplayOption	      "none"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "Plant"
+      Position		      [460, 174, 550, 236]
+      BackgroundColor	      "yellow"
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      Numerator		      "2"
+      Denominator	      "[1 3 2]"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "Planta"
+      Position		      [690, 182, 730, 208]
+      BackgroundColor	      "green"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      VariableName	      "y"
+      Buffer		      "6000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      SaveFormat	      "Matrix"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Ref"
+      Position		      [25, 179, 55, 211]
+      BackgroundColor	      "cyan"
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Saturate
+      Name		      "Saturation"
+      Position		      [375, 185, 415, 225]
+      BackgroundColor	      "yellow"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      UpperLimit	      "3"
+      LowerLimit	      "-3"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      Ports		      [1, 0, 0, 0, 0]
+      Position		      [730, 40, 775, 90]
+      BackgroundColor	      "green"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Floating		      off
+      Location		      [250, 280, 795, 594]
+      Open		      off
+      NumInputPorts	      "1"
+      TickLabels	      "on"
+      ZoomMode		      "on"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      Grid		      "on"
+      TimeRange		      "20.000000"
+      YMin		      "-1.2"
+      YMax		      "1.2"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "Matrix"
+      LimitMaxRows	      on
+      MaxRows		      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Subsystem"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [180, 170, 290, 240]
+      ForegroundColor	      "red"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      ShowPortLabels	      off
+      MaskType		      "Controller with anti wind up feature"
+      MaskDescription	      "Controller"
+      MaskHelp		      "Linear controller with ONE pole at s=0"
+      MaskPromptString	      "Controller numerator nc:|Controller denominator"
+" dc:| Saturation level sat:"
+      MaskStyleString	      "edit,edit,edit"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "||"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskInitialization      "nc=@1;dc=@2;sat=@3;"
+      MaskDisplay	      "disp('C(s)-AWUP')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "[50 150 100]|[1 13 0]|3"
+      System {
+	Name			"Subsystem"
+	Location		[0, 42, 800, 576]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+	AutoZoom		on
+	Block {
+	  BlockType		  Inport
+	  Name			  "in_1"
+	  Position		  [10, 71, 35, 99]
+	  ForegroundColor	  "blue"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Port			  "1"
+	  PortWidth		  "-1"
+	  SampleTime		  "-1"
+	  DataType		  "auto"
+	  SignalType		  "auto"
+	  Interpolate		  on
+	}
+	Block {
+	  BlockType		  Abs
+	  Name			  "Abs"
+	  Position		  [425, 345, 475, 375]
+	  Orientation		  "left"
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [430, 299, 465, 331]
+	  Orientation		  "left"
+	  ForegroundColor	  "blue"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Value			  "sat"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [290, 308, 315, 332]
+	  Orientation		  "left"
+	  ForegroundColor	  "blue"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Value			  "1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [290, 348, 315, 372]
+	  Orientation		  "left"
+	  ForegroundColor	  "blue"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Value			  "0"
+	}
+	Block {
+	  BlockType		  TransferFcn
+	  Name			  "Integral action"
+	  Position		  [255, 177, 525, 263]
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  NamePlacement		  "alternate"
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Numerator		  "nc(length(nc))/dc(length(dc)-1)"
+	  Denominator		  "[1  0]"
+	}
+	Block {
+	  BlockType		  TransferFcn
+	  Name			  "Non integrating  controller dynamics "
+	  Position		  [165, 47, 260, 123]
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  NamePlacement		  "alternate"
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Numerator		  "nc(1:length(nc)-1)-[0 dc(1:length(dc)-2)]*n"
+"c(length(nc))/dc(length(dc)-1)"
+	  Denominator		  "dc(1: length(dc)-1)"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  Ports			  [2, 1, 0, 0, 0]
+	  Position		  [200, 199, 220, 241]
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Inputs		  "2"
+	  SaturateOnIntegerOverflow on
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  Ports			  [2, 1, 0, 0, 0]
+	  Position		  [365, 293, 385, 382]
+	  Orientation		  "left"
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  IconShape		  "rectangular"
+	  Inputs		  "+-"
+	  SaturateOnIntegerOverflow on
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  Ports			  [2, 1, 0, 0, 0]
+	  Position		  [595, 43, 625, 207]
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  IconShape		  "rectangular"
+	  Inputs		  "++"
+	  SaturateOnIntegerOverflow on
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [215, 306, 245, 374]
+	  Orientation		  "left"
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Threshold		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "out_1"
+	  Position		  [685, 110, 710, 140]
+	  ForegroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  14
+	  Port			  "1"
+	  OutputWhenDisabled	  "held"
+	  InitialOutput		  "0"
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [-45, 0; 0, -110]
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Abs"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  DstBlock		  "Integral action"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Non integrating  controller dynamics "
+	  SrcPort		  1
+	  DstBlock		  "Sum3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    DstBlock		    "out_1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [2, 0; 0, 235]
+	    DstBlock		    "Abs"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Integral action"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, -55]
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "in_1"
+	  SrcPort		  1
+	  Points		  [77, 0]
+	  Branch {
+	    DstBlock		    "Non integrating  controller dynamics "
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 125]
+	    DstBlock		    "Product"
+	    DstPort		    1
+	  }
+	}
+	Annotation {
+	  Position		  [702, 62]
+	  VerticalAlignment	  "top"
+	  ForegroundColor	  "green"
+	  Text			  "Controller\n output"
+	  FontName		  "Arial"
+	  FontSize		  14
+	}
+	Annotation {
+	  Position		  [72, 55]
+	  VerticalAlignment	  "top"
+	  ForegroundColor	  "blue"
+	  Text			  "error"
+	  FontName		  "Arial"
+	  FontSize		  14
+	}
+      }
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [135, 184, 155, 226]
+      ForegroundColor	      "red"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      IconShape		      "rectangular"
+      Inputs		      "+-"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum2"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [600, 174, 620, 216]
+      BackgroundColor	      "yellow"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "control"
+      Position		      [360, 98, 400, 122]
+      BackgroundColor	      "green"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      VariableName	      "u"
+      Buffer		      "6000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      SaveFormat	      "Matrix"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "ref"
+      Position		      [155, 113, 195, 137]
+      BackgroundColor	      "green"
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      VariableName	      "r"
+      Buffer		      "6000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      SaveFormat	      "Matrix"
+    }
+    Line {
+      SrcBlock		      "Plant"
+      SrcPort		      1
+      DstBlock		      "Sum2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Dist"
+      SrcPort		      1
+      Points		      [20, 0; 0, 70]
+      DstBlock		      "Sum2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Saturation"
+      SrcPort		      1
+      DstBlock		      "Plant"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      DstBlock		      "Subsystem"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sum2"
+      SrcPort		      1
+      Points		      [35, 0]
+      Branch {
+	DstBlock		"Planta"
+	DstPort			1
+      }
+      Branch {
+	Points			[-15, 0]
+	DstBlock		"Mux"
+	DstPort			2
+      }
+      Branch {
+	Points			[6, 0; 0, 124; -580, 0; 0, -104]
+	DstBlock		"Sum"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Ref"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -140]
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	Points			[35, 0]
+	Branch {
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, -70]
+	  DstBlock		  "ref"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Subsystem"
+      SrcPort		      1
+      Points		      [65, 0]
+      Branch {
+	DstBlock		"Saturation"
+	DstPort			1
+      }
+      Branch {
+	Points			[-45, 0; 0, -95]
+	DstBlock		"control"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      1
+    }
+    Annotation {
+      Position		      [387, 337]
+      VerticalAlignment	      "top"
+      ForegroundColor	      "blue"
+      Text		      "CONTROLLER  FREEZING INTEGRAL ACTION TO AVOID W"
+"IND-UP, \nWHEN ITS OUTPUT  SATURATES "
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+    }
+    Annotation {
+      Position		      [387, 382]
+      VerticalAlignment	      "top"
+      ForegroundColor	      "red"
+      Text		      "TO SET THE CONTROLLER PARAMETERS, DOUBLE CLICK "
+"ON THE BOX C(s)-AWUP.\nWARNING: YOU MAST INSERT LEADING ZEROS IN THE NUMERATO"
+"R VECTOR, IF NECESSARY,\nTO MAKE IT OF THE SAME LENGTH AS THE DENOMINATOR."
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+    }
+    Annotation {
+      Position		      [502, 262]
+      VerticalAlignment	      "top"
+      Text		      "(linear part)"
+      FontName		      "Arial"
+      FontSize		      14
+    }
+  }
+}

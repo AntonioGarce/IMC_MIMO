@@ -1,0 +1,441 @@
+Model {
+  Name			  "softpl1"
+  Version		  2.20
+  SimParamPage		  Solver
+  SampleTimeColors	  off
+  InvariantConstants	  off
+  WideVectorLines	  off
+  ShowLineWidths	  off
+  StartTime		  "0.0"
+  StopTime		  "10"
+  Solver		  ode45
+  RelTol		  "1e-4"
+  AbsTol		  "1e-4"
+  Refine		  "1"
+  MaxStep		  "0.01"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  MaxOrder		  5
+  OutputOption		  RefineOutputTimes
+  OutputTimes		  "[]"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  SaveTime		  on
+  TimeSaveName		  "t"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  off
+  OutputSaveName	  "yout"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  LimitMaxRows		  off
+  MaxRows		  "1000"
+  Decimation		  "1"
+  AlgebraicLoopMsg	  warning
+  MinStepSizeMsg	  warning
+  UnconnectedInputMsg	  warning
+  UnconnectedOutputMsg	  warning
+  UnconnectedLineMsg	  warning
+  ConsistencyChecking	  off
+  ZeroCross		  on
+  SimulationMode	  normal
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWInlineParameters	  off
+  RTWPlaceOutputsASAP	  off
+  RTWRetainRTWFile	  off
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  BlockDefaults {
+    Orientation		    right
+    ForegroundColor	    black
+    BackgroundColor	    white
+    DropShadow		    off
+    NamePlacement	    normal
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    normal
+    FontAngle		    normal
+    ShowName		    on
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    center
+    VerticalAlignment	    middle
+    ForegroundColor	    black
+    BackgroundColor	    white
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    normal
+    FontAngle		    normal
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    normal
+    FontAngle		    normal
+  }
+  System {
+    Name		    "softpl1"
+    Location		    [0, 72, 800, 558]
+    Open		    on
+    ToolBar		    on
+    StatusBar		    on
+    ScreenColor		    white
+    PaperOrientation	    landscape
+    PaperPositionMode	    auto
+    PaperType		    usletter
+    PaperUnits		    inches
+    Block {
+      BlockType		      Inport
+      Name		      "input"
+      Position		      [60, 276, 85, 304]
+      ForegroundColor	      blue
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      Port		      "1"
+      PortWidth		      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn"
+      Position		      [295, 105, 520, 165]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Expr		      "(u[2])^3+u[2]"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn1"
+      Position		      [210, 187, 390, 233]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Expr		      "-2*(u[1])-3*(u[2])"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn2"
+      Position		      [270, 282, 450, 338]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Expr		      "(1+0.1*(u[1])^2)*u[2]"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [565, 117, 595, 153]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      ExternalReset	      none
+      InitialConditionSource  internal
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator1"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [575, 217, 605, 253]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      ExternalReset	      none
+      InitialConditionSource  internal
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [115, 190, 160, 225]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Inputs		      "2"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux3"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [215, 115, 260, 150]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Inputs		      "2"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux4"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [200, 290, 245, 325]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Inputs		      "2"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      Ports		      [1, 0, 0, 0, 0]
+      Position		      [365, 46, 410, 94]
+      BackgroundColor	      green
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Floating		      off
+      Location		      [383, 227, 714, 541]
+      Open		      off
+      Grid		      on
+      TickLabels	      on
+      ZoomMode		      on
+      TimeRange		      "20.000000"
+      YMin		      "-2.000000"
+      YMax		      "2.000000"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitMaxRows	      on
+      MaxRows		      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [520, 188, 545, 277]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Inputs		      "++"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum2"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [135, 268, 160, 357]
+      BackgroundColor	      yellow
+      DropShadow	      on
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      Inputs		      "++"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Test  Input\nu(t)"
+      Position		      [55, 352, 80, 378]
+      BackgroundColor	      cyan
+      FontName		      "Arial"
+      FontSize		      14
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "state1 (x1)"
+      Position		      [655, 54, 685, 76]
+      BackgroundColor	      green
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      VariableName	      "y"
+      Buffer		      "20000"
+      Decimation	      "1"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "state2"
+      Position		      [625, 284, 655, 306]
+      BackgroundColor	      green
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      VariableName	      "x2"
+      Buffer		      "20000"
+      Decimation	      "1"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "out_1"
+      Position		      [660, 122, 685, 148]
+      ForegroundColor	      green
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      14
+      Port		      "1"
+      OutputWhenDisabled      held
+      InitialOutput	      "0"
+    }
+    Line {
+      SrcBlock		      "Integrator1"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	DstBlock		"state2"
+	DstPort			1
+      }
+      Branch {
+	Points			[110, 0; 0, -210; -635, 0; 0, 115]
+	Branch {
+	  Points		  [0, 75]
+	  DstBlock		  "Mux1"
+	  DstPort		  2
+	}
+	Branch {
+	  DstBlock		  "Mux3"
+	  DstPort		  2
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Integrator"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	DstBlock		"out_1"
+	DstPort			1
+      }
+      Branch {
+	Points			[21, 0; 0, -70]
+	DstBlock		"state1 (x1)"
+	DstPort			1
+      }
+      Branch {
+	Points			[41, 0; 0, 46; -445, 0]
+	Branch {
+	  Points		  [-20, 0]
+	  Branch {
+	    Points		    [-80, 0; 0, 19]
+	    DstBlock		    "Mux1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 119]
+	    DstBlock		    "Mux4"
+	    DstPort		    1
+	  }
+	}
+	Branch {
+	  Points		  [0, -56]
+	  DstBlock		  "Mux3"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Mux4"
+      SrcPort		      1
+      DstBlock		      "Fcn2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Fcn2"
+      SrcPort		      1
+      Points		      [41, 0; 0, -55]
+      DstBlock		      "Sum"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      DstBlock		      "Integrator1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Fcn1"
+      SrcPort		      1
+      DstBlock		      "Sum"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      DstBlock		      "Fcn1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Fcn"
+      SrcPort		      1
+      DstBlock		      "Integrator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sum2"
+      SrcPort		      1
+      DstBlock		      "Mux4"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "input"
+      SrcPort		      1
+      DstBlock		      "Sum2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Test  Input\nu(t)"
+      SrcPort		      1
+      Points		      [25, 0; 0, -30]
+      DstBlock		      "Sum2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Mux3"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	DstBlock		"Fcn"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -65]
+	DstBlock		"Scope"
+	DstPort			1
+      }
+    }
+  }
+}
